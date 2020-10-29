@@ -1,0 +1,4 @@
+python-novaclient>=17.2.1
+python-glanceclient>=3.2.2
+python-neutronclient>=7.2.1
+python-keystoneclient>=4.1.1
