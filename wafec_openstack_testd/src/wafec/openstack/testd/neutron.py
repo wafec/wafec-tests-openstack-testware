@@ -12,7 +12,8 @@ class NeutronDriver(DriverBase):
 
     def network_get(self, network_name):
         networks = self.client.list_networks(name=network_name)
-        if networks:
+        if networks and networks['networks']:
+            networks = networks['networks']
             network = networks[0]
             return network
         else:

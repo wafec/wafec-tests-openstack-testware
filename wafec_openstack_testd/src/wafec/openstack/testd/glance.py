@@ -11,10 +11,11 @@ class GlanceDriver(DriverBase):
         DriverBase.__init__(self)
         self.session = session
         self.version = version
-        self.client = client.Client(self.version, self.session)
+        self.client = client.Client(self.version, session=self.session)
 
     def image_get(self, image_name):
         images = self.client.images.list(filters={'name': image_name})
+        images = list(images)
         if images:
             image = images[0]
             return image

@@ -1,5 +1,10 @@
 import abc
 import datetime
+import time
+
+from .types import Undefined
+
+_DEFAULT_SLEEP_TIME = 0.2
 
 
 class DriverBase(object, metaclass=abc.ABCMeta):
@@ -16,7 +21,7 @@ class DriverBase(object, metaclass=abc.ABCMeta):
 
 class StateBase(object, metaclass=abc.ABCMeta):
     def __init__(self):
-        pass
+        self.ignore_undefined = True
 
     @property
     @abc.abstractmethod
@@ -27,8 +32,9 @@ class StateBase(object, metaclass=abc.ABCMeta):
         for arg_name, arg_value in kwargs.items():
             if arg_name in self.state_props:
                 value = self.__dict__[arg_name]
-                if value != arg_value:
-                    return False
+                if not Undefined.is_undefined(arg_value) and not Undefined.is_undefined(value):
+                    if value != arg_value:
+                        return False
             else:
                 raise ValueError(f'prop {arg_name} is not in state_props')
         return True
@@ -50,18 +56,19 @@ class WaitState(object):
         pass
 
     @staticmethod
-    def wait_while(condition, supplier, timeout):
+    def wait_while(condition, supplier, timeout, sleep_time=_DEFAULT_SLEEP_TIME):
         start_time = datetime.datetime.now()
         elapsed_time = datetime.datetime.now() - start_time
         result = False
-        while elapsed_time.microseconds < timeout:
+        while elapsed_time.seconds < timeout:
             state_entities = supplier()
             if not isinstance(state_entities, list) and not isinstance(state_entities, tuple):
                 state_entities = [state_entities]
             result = condition(*state_entities)
             if result:
                 break
-            elapsed_time = datetime.datetime.now()
+            time.sleep(sleep_time)
+            elapsed_time = datetime.datetime.now() - start_time
         return result
 
 
