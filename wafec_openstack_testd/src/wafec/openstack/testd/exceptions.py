@@ -11,3 +11,7 @@ class NotFoundException(ExceptionBase):
 
 class StateMismatchException(ExceptionBase):
     pass
+
+
+class ArgumentException(ExceptionBase):
+    pass
