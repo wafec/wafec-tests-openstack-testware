@@ -1,5 +1,13 @@
 import abc
 
+__all__ = [
+    'NotFoundException',
+    'StateMismatchException',
+    'ArgumentException',
+    'IllegalStateException',
+    'ExceptionBase'
+]
+
 
 class ExceptionBase(Exception, metaclass=abc.ABCMeta):
     pass
@@ -14,4 +22,8 @@ class StateMismatchException(ExceptionBase):
 
 
 class ArgumentException(ExceptionBase):
+    pass
+
+
+class IllegalStateException(ExceptionBase):
     pass

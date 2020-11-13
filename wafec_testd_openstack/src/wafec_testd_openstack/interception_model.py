@@ -7,7 +7,8 @@ from ._configuration import interception_config
 
 __all__ = [
     'new_session',
-    'Interception'
+    'Interception',
+    'InterceptionVars'
 ]
 
 Base = declarative_base()
@@ -35,6 +36,13 @@ class Interception(Base):
         interception.x = x
         interception.created_at = datetime.datetime.now()
         return interception
+
+
+class InterceptionVars(Base):
+    __tablename__ = 'INTERCEPTION_VARS'
+
+    id = Column(Integer, primary_key=True, name="id")
+    active = Column(Integer, name="active")
 
 
 def new_session():

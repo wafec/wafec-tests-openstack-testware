@@ -7,3 +7,8 @@ CREATE TABLE INTERCEPTION (
     ps text,
     trace text
 );
+
+CREATE TABLE INTERCEPTION_VARS (
+    id int primary key auto_increment,
+    active int default 1
+);
