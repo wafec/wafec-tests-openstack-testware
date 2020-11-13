@@ -5,4 +5,4 @@ python-keystoneclient>=4.1.1
 Flask>=1.1.2
 SQLAlchemy>=1.3.20
 PyMySQL>=0.10.1
-wafec_tests_openstack_base
+../../wafec-tests-openstack-base/wafec_tests_openstack_base

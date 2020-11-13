@@ -1,4 +1,4 @@
-from ..testd.interception_agent import start_agent_server
+from ..interception_agent import start_agent_server
 from ._base import ScriptBase
 
 __all__ = [

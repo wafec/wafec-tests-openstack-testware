@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 
 from ._configuration import interception_config
-from wafec.openstack.testlib.clients import InterceptionAgentClient
+from wafec_tests_openstack_base.clients import InterceptionAgentClient
 
 app = Flask(__name__)
 

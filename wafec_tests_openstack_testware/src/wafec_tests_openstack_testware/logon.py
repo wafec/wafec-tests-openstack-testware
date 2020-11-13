@@ -1,7 +1,7 @@
 from keystoneauth1 import identity
 from keystoneauth1 import session
 
-from .utils import get_or_env
+from wafec_tests_openstack_base.utils import get_or_env
 
 __all__ = [
     'session_build'

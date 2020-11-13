@@ -1,6 +1,6 @@
 import configparser
 
-from .utils import first_existent_path
+from wafec_tests_openstack_base.utils import first_existent_path
 
 __all__ = [
     'interception_config',

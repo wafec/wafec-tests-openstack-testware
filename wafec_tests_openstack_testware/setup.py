@@ -6,7 +6,7 @@ setup(
     author="Wallace",
     author_email="wallacefcardoso@gmail.com",
     packages=find_packages("src"),
-    namespace_packages=['wafec_testd_openstack'],
+    namespace_packages=['wafec_tests_openstack_testware'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
