@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="wafec-testd-openstack",
+    name="wafec-tests-openstack-testware",
     version="1.0.3",
     author="Wallace",
     author_email="wallacefcardoso@gmail.com",
